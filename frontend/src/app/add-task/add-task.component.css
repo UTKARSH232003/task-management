@@ -1,0 +1,19 @@
+.modal {
+    display: block; /* Ensure the modal is displayed */
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+  }
+  
+  .modal-dialog {
+    margin: 1.75rem auto; /* Center the modal */
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .modal-header, .modal-footer {
+    border: none; /* Remove default border */
+  }
+  
