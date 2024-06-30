@@ -24,6 +24,9 @@ app.use('/status', statusRoutes);
 app.get('/get', (req, res) => {
     res.send('<h2>THIS IS GET</h2>');
 });
+app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"))
+})
 
 app.listen(PORT, ()=>{
     console.log(`App started on PORT-${PORT}`);

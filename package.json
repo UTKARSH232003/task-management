@@ -5,13 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-all": "npm run install-frontend && npm run install-backend && npm install concurrently",
-    "install-frontend": "cd frontend && npm install",
-    "install-backend": "cd backend && npm install",
-    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
-    "start-frontend": "cd frontend && npx ng build",
-
-    "start-backend": "cd backend && npm run start"
+    "install-all": "npm install && npm install --prefix frontend && ng build --prefix frontend",
+    "start": "node backend/index.js"
   },
   "author": "",
   "license": "ISC",
