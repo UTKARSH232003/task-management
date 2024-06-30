@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
+// import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  // private apiUrl = 'http://localhost:5001/tasks/';
-  // private statusApiUrl = 'http://localhost:5001/status/change-status/';
-  private apiUrl = environment.apiUrl + '/tasks/';
-  private statusApiUrl = environment.apiUrl + '/status/change-status/';
+  private apiUrl = 'http://localhost:5001/tasks/';
+  private statusApiUrl = 'http://localhost:5001/status/change-status/';
+  // private apiUrl = environment.apiUrl + '/tasks/';
+  // private statusApiUrl = environment.apiUrl + '/status/change-status/';
 
   
   constructor(private http: HttpClient) { }
