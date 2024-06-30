@@ -6,8 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:5001/tasks/';
-  private statusApiUrl = 'http://localhost:5001/status/change-status/';
+  // private apiUrl = 'http://localhost:5001/tasks/';
+  // private statusApiUrl = 'http://localhost:5001/status/change-status/';
+  private apiUrl = 'http://task-management-8ied.onrender.com/tasks/';
+
+  private statusApiUrl = 'http://task-management-8ied.onrender.com/status/change-status/';
+
   
   constructor(private http: HttpClient) { }
   
