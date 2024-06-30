@@ -7,12 +7,11 @@ import statusRoutes from './routes/status.js';
 import cors from 'cors';
 
 dotenv.config();
-connectToMongo();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
-const frontendPath = path.resolve(__dirname, '..', 'frontend', 'dist');
+const frontendPath = path.resolve(__dirname, 'frontend','dist','frontend','browser' );
 
 app.use(express.static(frontendPath));
 app.use(cors());
@@ -29,5 +28,6 @@ app.get("*", (req, res) => {
 })
 
 app.listen(PORT, ()=>{
+    connectToMongo();
     console.log(`App started on PORT-${PORT}`);
 })
