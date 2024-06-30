@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:5001/tasks/';
-  private statusApiUrl = 'http://localhost:5001/status/change-status/';
-  // private apiUrl = environment.apiUrl + '/tasks/';
-  // private statusApiUrl = environment.apiUrl + '/status/change-status/';
+  // private apiUrl = 'http://localhost:5001/tasks/';
+  // private statusApiUrl = 'http://localhost:5001/status/change-status/';
+  private apiUrl = 'https://task-management-9.onrender.com/tasks/';
+  private statusApiUrl = 'https://task-management-9.onrender.com/status/change-status/';
 
   
   constructor(private http: HttpClient) { }
