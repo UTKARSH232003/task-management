@@ -1,3 +1,4 @@
+import path from "path";
 import express from 'express';
 import dotenv from 'dotenv';
 import connectToMongo from './database/connectToMongo.js';
@@ -6,10 +7,14 @@ import statusRoutes from './routes/status.js';
 import cors from 'cors';
 
 dotenv.config();
-
+connectToMongo();
 const app = express();
 const PORT = process.env.PORT;
 
+const __dirname = path.resolve();
+const frontendPath = path.resolve(__dirname, '..', 'frontend', 'dist');
+
+app.use(express.static(frontendPath));
 app.use(cors());
 app.use(express.json());
 
@@ -21,6 +26,5 @@ app.get('/get', (req, res) => {
 });
 
 app.listen(PORT, ()=>{
-    connectToMongo();
     console.log(`App started on PORT-${PORT}`);
 })

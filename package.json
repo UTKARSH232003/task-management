@@ -9,8 +9,8 @@
     "install-frontend": "cd frontend && npm install",
     "install-backend": "cd backend && npm install",
     "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
-    "start-frontend": "cd frontend && ng serve",
-    "start-backend": "cd backend && node index.js"
+    "start-frontend": "cd frontend && ng build",
+    "start-backend": "cd backend && npm run start"
   },
   "author": "",
   "license": "ISC",
