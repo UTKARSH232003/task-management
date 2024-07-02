@@ -1,15 +1,5 @@
 import mongoose from 'mongoose';
 
-// const historySchema = new mongoose.Schema({
-//     field: String,
-//     oldValue: mongoose.Schema.Types.Mixed,
-//     newValue: mongoose.Schema.Types.Mixed,
-//     changedAt: {
-//         type: Date,
-//         default: Date.now
-//     },
-// });
-
 const taskSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -34,7 +24,6 @@ const taskSchema = new mongoose.Schema({
         default: "to-do",
         enum: ["to-do", "in-progress", "completed"]
     },
-    // history: [historySchema]
 });
 
 const Task = mongoose.model("Tasks", taskSchema);

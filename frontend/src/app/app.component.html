@@ -74,12 +74,12 @@
 
 .left-side {
   flex: 1;
-  width: 100%; /* Ensure it takes up the full width */
+  width: 100%; 
 }
 
 .task-item {
   margin-bottom: 15px;
-  width: 100%; /* Ensure it takes up the full width */
+  width: 100%;
   max-width: 90%;
   min-width: 500px;
 }
@@ -88,7 +88,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 5px;
-  width: 100%; /* Ensure it takes up the full width */
+  width: 100%; 
 }
 
 .card-body {
@@ -103,7 +103,7 @@
 
 .card-text {
   margin-bottom: 10px;
-  word-wrap: break-word; /* Ensure long descriptions wrap properly */
+  word-wrap: break-word; 
 }
 
 .btn-group {
@@ -114,7 +114,7 @@
 
 .btn-primary {
   margin-top: 10px;
-  align-self: flex-end; /* Ensure the button aligns to the right */
+  align-self: flex-end; 
 }
 .d-flex {
   display: flex;
@@ -149,60 +149,6 @@
     }
   }
 </style>
-
-
-<!-- <main class="main">
-  <div class="content">
-    <div class="left-side">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Tasks</h2>
-        
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort by
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
-            <li><a class="dropdown-item" href="#" (click)="sortBy('dueDate')">Due Date</a></li>
-            <li><a class="dropdown-item" href="#" (click)="sortBy('priority')">Priority</a></li>
-            <li><a class="dropdown-item" href="#" (click)="sortBy('status')">Status</a></li>
-          </ul>
-        </div>
-        
-        <button class="btn btn-primary" (click)="openAddTaskDialog()">Add New Task</button>
-      </div>
-      <div *ngIf="!showAddTaskDialog && !showEditTaskDialog">
-        <div *ngFor="let task of tasks" class="task-item card mb-3">
-          <div class="card-body">
-            <h3 class="card-title">{{ task.title }}</h3>
-            <p class="card-text">{{ task.description }}</p>
-            <p class="card-text"><small class="text-muted">Due Date: {{ task.dueDate | date }}</small></p>
-            <p class="card-text"><small class="text-muted">Priority: {{ task.priority }}</small></p>
-            <p class="card-text"><small class="text-muted">Status: {{ task.status }}</small></p>
-            <div class="btn-group d-flex" role="group" aria-label="Task actions">
-              <div class="dropdown">
-                <button class="btn btn-info dropdown-toggle me-2" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  Change Status
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="statusDropdown">
-                  <li><a class="dropdown-item" href="#" (click)="changeTaskStatus(task._id, 'to-do', $event)">to-do</a></li>
-                  <li><a class="dropdown-item" href="#" (click)="changeTaskStatus(task._id, 'in-progress', $event)">In Progress</a></li>
-                  <li><a class="dropdown-item" href="#" (click)="changeTaskStatus(task._id, 'completed', $event)">Completed</a></li>
-                </ul>
-              </div>
-              <button class="btn btn-warning me-2" (click)="editTask(task)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteTask(task._id)">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-  </div>
-  <app-add-task *ngIf="showAddTaskDialog || showEditTaskDialog"
-                [taskToEdit]="taskToEdit"
-                (close)="handleDialogClose($event)">
-  </app-add-task>
-</main> -->
 
 
 <main class="main">
