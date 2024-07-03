@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { environment } from '../environments/environment';
 @Injectable({
@@ -26,11 +26,15 @@ export class TaskService {
     return this.http.delete<any>(this.apiUrl + 'delete/' + taskId);
   }
 
+ 
   updateTask(taskId: string, updatedTask: any): Observable<any> {
-    return this.http.put<any>(this.apiUrl + 'update/' + taskId, updatedTask);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<any>(`${this.apiUrl}update/${taskId}`, updatedTask, { headers });
   }
-
   changeTaskStatus(taskId: string, statusChange: { status: string }): Observable<any> {
     return this.http.put<any>(this.statusApiUrl + taskId, statusChange);
+  }
+  getTaskHistory(taskId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}history/${taskId}`);
   }
 }

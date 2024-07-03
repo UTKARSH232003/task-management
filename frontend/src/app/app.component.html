@@ -156,7 +156,6 @@
     <div class="left-side">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Tasks</h2>
-        <!-- Sorting dropdown -->
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             Sort by
@@ -168,7 +167,6 @@
           </ul>
         </div>
         
-        <!-- Export to CSV button -->
         <button class="btn btn-success" (click)="exportToCSV()">Export to CSV</button>
         <button class="btn btn-primary" (click)="openAddTaskDialog()">Add New Task</button>
       </div>
@@ -191,6 +189,7 @@
                   <li><a class="dropdown-item" href="#" (click)="changeTaskStatus(task._id, 'completed', $event)">Completed</a></li>
                 </ul>
               </div>
+              <button class="btn btn-info me-2" (click)="showTaskHistory(task._id)">Show History</button>
               <button class="btn btn-warning me-2" (click)="editTask(task)">Edit</button>
               <button class="btn btn-danger" (click)="deleteTask(task._id)">Delete</button>
             </div>
@@ -204,6 +203,10 @@
                 [taskToEdit]="taskToEdit"
                 (close)="handleDialogClose($event)">
   </app-add-task>
+  <app-task-history *ngIf="showHistoryDialog" 
+                    [taskHistory]="taskHistory"
+                    (close)="closeHistoryDialog()">
+  </app-task-history>
 </main>
 
 <router-outlet />

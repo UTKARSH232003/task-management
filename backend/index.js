@@ -26,7 +26,6 @@ app.get('/get', (req, res) => {
 app.get("*", (req, res) => {
     res.sendFile(path.join(frontendPath, "index.html"))
 })
-
 app.listen(PORT, ()=>{
     connectToMongo();
     console.log(`App started on PORT-${PORT}`);

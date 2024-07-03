@@ -17,7 +17,7 @@ export class AddTaskComponent {
     priority: 'low',
     status: 'pending'
   };
-  
+
   isEditing: boolean = false;
 
   constructor(private taskService: TaskService) {}
@@ -32,28 +32,37 @@ export class AddTaskComponent {
     }
   }
 
+  private updateTask(): void {
+    const updatedFields = this.getChangedFields(this.taskToEdit, this.newTask);
+    
+    this.taskService.updateTask(this.taskToEdit._id, updatedFields).subscribe(
+      (updatedTask) => {
+        this.close.emit(true);
+      },
+      (error) => {
+        console.error('Error updating task:', error);
+        alert('Failed to update task. Please try again.');
+      }
+    );
+  }
+
+  private addTask(): void {
+    this.taskService.addTask(this.newTask).subscribe(
+      (addedTask) => {
+        this.closeDialog();
+      },
+      (error) => {
+        console.error('Error adding task:', error);
+        alert('Failed to add task. Please try again.');
+      }
+    );
+  }
+
   onSubmit(): void {
     if (this.isEditing) {
-      this.taskService.updateTask(this.taskToEdit._id, this.newTask).subscribe(
-                (updatedTask) => {
-                  console.log('Task updated successfully:', updatedTask);
-                  // Emit true to indicate success and close the modal
-                  this.close.emit(true);
-                },
-        (error) => {
-          console.error('Error updating task:', error);
-        }
-      );
+      this.updateTask();
     } else {
-      this.taskService.addTask(this.newTask).subscribe(
-        (addedTask) => {
-          console.log('Added task:', addedTask);
-          this.closeDialog();
-        },
-        (error) => {
-          console.error('Error adding task:', error);
-        }
-      );
+      this.addTask();
     }
   }
 
@@ -74,5 +83,15 @@ export class AddTaskComponent {
 
   getSubmitButtonText(): string {
     return this.isEditing ? 'Update Task' : 'Add Task';
+  }
+
+  private getChangedFields(original: any, updated: any): any {
+    const changedFields: any = {};
+    for (const key in updated) {
+      if (updated.hasOwnProperty(key) && updated[key] !== original[key]) {
+        changedFields[key] = updated[key];
+      }
+    }
+    return changedFields;
   }
 }

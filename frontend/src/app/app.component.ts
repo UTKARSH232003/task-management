@@ -9,6 +9,8 @@ import * as Papa from 'papaparse';
 })
 export class AppComponent {
   tasks: any[] = [];
+  showHistoryDialog = false;
+  taskHistory: any[] = [];
   showAddTaskDialog = false;
   showEditTaskDialog = false;
   taskToEdit: any = null;
@@ -29,7 +31,15 @@ export class AppComponent {
       }
     );
   }
-
+  showTaskHistory(taskId: string) {
+    this.taskService.getTaskHistory(taskId).subscribe(data => {
+      this.taskHistory = data;
+      this.showHistoryDialog = true;
+    });
+  }
+  closeHistoryDialog() {
+    this.showHistoryDialog = false;
+  }
   openAddTaskDialog(): void {
     this.showAddTaskDialog = true;
     this.showEditTaskDialog = false; 
