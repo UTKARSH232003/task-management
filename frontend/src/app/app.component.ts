@@ -19,6 +19,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.loadTasks();
+    this.loadTasks();
   }
 
   loadTasks(): void {
